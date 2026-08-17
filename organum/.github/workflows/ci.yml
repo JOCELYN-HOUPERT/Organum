@@ -1,0 +1,31 @@
+name: CI
+
+# Se déclenche sur chaque push et chaque pull request, quelle que soit
+# la branche. C'est volontairement large pour un solo dev : on veut être
+# prévenu dès qu'on casse quelque chose, même sur une branche de feature.
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Vérification syntaxique (ESLint)
+        run: npm run lint
+
+      - name: Tests unitaires (Jest)
+        run: npm test

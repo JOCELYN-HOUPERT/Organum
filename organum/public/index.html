@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organum</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#17140f">
+</head>
+<body>
+  <h1>Organum</h1>
+  <p>Squelette PWA — étape suivante : brancher src/audio-engine.js ici.</p>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("service-worker.js");
+      });
+    }
+  </script>
+</body>
+</html>

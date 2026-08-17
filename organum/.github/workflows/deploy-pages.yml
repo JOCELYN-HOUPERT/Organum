@@ -1,0 +1,32 @@
+name: Déploiement GitHub Pages
+
+# Ne se déclenche que sur main, et seulement après un push (pas sur les PR) :
+# on ne déploie que du code déjà validé et mergé.
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Préparer le dossier Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Déployer
+        id: deployment
+        uses: actions/deploy-pages@v4
