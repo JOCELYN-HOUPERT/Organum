@@ -8,11 +8,17 @@
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "dev": "npx serve public"
   },
-  "keywords": ["jdr", "tabletop", "audio", "pwa"],
+  "keywords": [
+    "jdr",
+    "tabletop",
+    "audio",
+    "pwa"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "eslint": "^9.9.0",
+    "fake-indexeddb": "^6.2.5",
     "jest": "^29.7.0"
   }
 }
