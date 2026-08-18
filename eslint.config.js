@@ -12,7 +12,9 @@ export default [
         indexedDB: "readonly",
         console: "readonly",
         setTimeout: "readonly",
-        clearTimeout: "readonly"
+        clearTimeout: "readonly",
+        crypto: "readonly",
+        Blob: "readonly"
       }
     },
     rules: {
